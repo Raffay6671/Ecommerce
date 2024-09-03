@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(220, 220, 220);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgb(255, 255, 255); /* Background color to differentiate the container */
+}
+
+.navbar {
+    width: 50%;
+    background-color: rgb(255, 255, 255); /* Ensure the navbar has a background */
+}
+
+.navbar-nav {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+}
+
+.MiddleName {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px; /* Ensure this matches the height of the navbar */
+}
+
+body {
+    padding-top: 70px; /* Adjust this based on the height of your fixed container */
+}
