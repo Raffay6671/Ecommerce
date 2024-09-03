@@ -1,0 +1,49 @@
+.category-filter-container {
+    padding: 20px;
+  }
+  
+  .filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+  }
+  
+  .filter-list {
+    list-style: none;
+    display: flex;
+    gap: 40px; 
+    margin-left: 13%;
+    margin-top: 5%;
+
+  }
+  
+  .filter-item {
+    cursor: pointer;
+    font-weight: 600;
+    color: #929292;
+
+    text-transform: uppercase;
+    font-family: Catamaran sans-serif;
+  }
+  
+  .filter-item.active {
+    border-bottom: 2px solid black; 
+  }
+  
+  .filter-action {
+    cursor: pointer;
+    font-weight: 600;
+    
+    display: flex;
+margin-top: 5%;
+margin-right: 15%;
+color: #929292;
+
+}
+  
+  .filter-action i {
+    margin-left: 5px; 
+  }
+  

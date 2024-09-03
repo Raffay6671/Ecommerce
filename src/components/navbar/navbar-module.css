@@ -1,37 +1,90 @@
-.container {
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    background-color: rgb(255, 255, 255); /* Background color to differentiate the container */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
 .navbar {
-    width: 50%;
-    background-color: rgb(255, 255, 255); /* Ensure the navbar has a background */
-}
-
-.navbar-nav {
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 23px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    font-family: Catamaran, sans-serif;
-
-}
-
-.MiddleName {
-    width: 50%;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 20px; 
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 70px; /* Ensure this matches the height of the navbar */
+    min-height: 110px; 
 }
 
-body {
-    padding-top: 70px; /* Adjust this based on the height of your fixed container */
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
+
+.navbar-left {
+    margin-top: 3%;
+    display: flex;   
+     font-family: Catamaran, sans-serif;
+    font-weight: 700;
+    margin-left: -26%;
+}
+
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 1.5%;
+
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center; 
+    font-family: Catamaran, sans-serif;
+    font-weight: 700;
+    margin-top: 3%;
+    margin-right: -25%;
+}
+
+.nav-link {
+    display: inline-flex; 
+    align-items: center;
+    gap: 8px; 
+}
+
+.cart-amount {
+    font-weight: normal; 
+    color: grey;
+  }
+.nav-link i {
+    display: inline-block;
+font-size: 20px;
+}
+
+.navbar-logo img {
+    max-height: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: grey;
+}
+
+.fa {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+

@@ -1,0 +1,51 @@
+.banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px; 
+    height: 80vh;
+    width: 80vw;
+    background-color: #f5f5f5; 
+    margin-left: 10%;
+
+  }
+
+  
+  
+  .banner-content {
+    position: absolute;
+    left: 10%;
+    top: 70%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  
+  .banner-title {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  }
+  
+  .banner-subtitle {
+    font-size: 22px;
+    color: #777; 
+    margin-top: 10px;
+    font-weight:lighter;
+
+    
+  }
+  
+  .hero-image {
+    max-width: 700px;
+    width: 100%;
+    height: auto;
+    z-index: 0; 
+    margin-left: 40%;
+  }
+  
