@@ -61,14 +61,6 @@ const products = [
     label: "NEW",
     image: "src/assets/images/product6.jpg",
   },
-
-  {
-    id: 9,
-    name: "Rose Holdback",
-    price: "$90",
-    label: "NEW",
-    image: "src/assets/images/product7.jpg",
-  },
 ];
 
 const ProductShowcase = () => {

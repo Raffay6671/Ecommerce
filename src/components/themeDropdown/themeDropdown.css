@@ -1,0 +1,39 @@
+.themeDropdown {
+    background-color: #ef2853;
+    width: 8%;
+    right: 0;
+    z-index: 1;
+    position: fixed;
+    top: 50%;
+    height: 42px;
+
+
+
+    
+    
+}
+
+.themeDropdown_Position {
+    display: flex;
+
+    margin-top: 10%;
+    margin-left: 10%;
+    gap: 10px;
+}
+
+.themeDropdown_Position h1{
+
+ color: white;
+ font-family: 'Heebo', sans-serif !important;
+ font-size: 10px;
+ letter-spacing: .11em !important;
+ font-weight: 600;
+ margin-top: 3%;
+}
+
+.themeDropdown_Position i{
+
+    color: white;
+    
+   }
+   

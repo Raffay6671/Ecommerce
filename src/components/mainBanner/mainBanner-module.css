@@ -49,3 +49,63 @@
     margin-left: 40%;
   }
   
+
+
+
+  
+/* Laptop Large (2560px) */
+@media (max-width: 2560px) {
+    .hero-image {
+        width: 450px;
+        height: 110%;
+        z-index: 0; 
+      }
+
+      
+  .banner-title {
+    font-size: 30px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  }
+  
+  .banner-subtitle {
+    font-size: 16px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+
+
+    
+  }
+
+      
+   
+}
+
+/* Standard Laptop (1440px) */
+@media (max-width: 1440px) {
+   
+    .nav-link {
+        font-size: 8px;
+    }
+    .navbar-left{
+        gap: 2px;
+    }
+
+    .navbar-right{
+        gap: 2px;
+        margin-left: 26%;
+    }
+    
+.nav-link i {
+    display: inline-block;
+font-size: 10px;
+}
+}

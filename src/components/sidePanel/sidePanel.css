@@ -1,0 +1,103 @@
+.sideBar {
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100%;
+    background-color: #111;
+    width: 605px;
+    display: block;
+    transform: translateX(0); 
+    transition: transform 0.4s cubic-bezier(0.35, 0, 0.58, 1); 
+    z-index: 1000;
+}
+
+.sideBar.open {
+    transform: translateX(100%); 
+}
+
+
+.innerArea {
+    height: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 4%;
+}
+
+.closeMenu {
+    margin-left: 10%;
+    text-align: right;
+    color: white;
+    width: 80%;
+    padding-bottom: 7%;
+    padding-right: 1%;
+    cursor: pointer; 
+}
+
+.textwidget {
+    display: block;
+    text-align: center;
+}
+
+.header {
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    line-height: 60px;
+}
+
+.aboutHeader {
+    color: rgb(146, 146, 146);
+    font-size: 24px;
+    font-weight: 300;
+    line-height: 36px;
+}
+
+
+.imagesArea {
+    padding: 20px;
+}
+
+.adjustImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; 
+    width: 70%;
+    margin-left: 15%;
+
+}
+
+.adjustImages img {
+    width: 23%; 
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+
+.lowerArea {
+    margin-top: 4%;
+}
+
+.lowerAreaText h3 {
+
+    color: RGB(175, 175, 175);
+    font-family: sans-serif;
+    font-size: 16px;
+    letter-spacing: 3px;
+
+}
+
+.lowerAreaIcons {
+    margin-top: 5.5%;
+}
+
+.lowerAreaIcons i{
+    color: white;
+    letter-spacing: 20px;
+    font-size: 20px;
+    
+}

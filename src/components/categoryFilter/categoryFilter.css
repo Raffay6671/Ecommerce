@@ -1,7 +1,18 @@
-.category-filter-container {
+
+ 
+
+
+
+
+  
+/* Laptop Large (2560px) */
+@media (max-width: 2560px) {
+
+  .category-filter-container {
     padding: 20px;
   }
   
+
   .filter-options {
     display: flex;
     justify-content: space-between;
@@ -9,11 +20,82 @@
     margin-bottom: 20px;
 
   }
-  
+
+   
+ 
   .filter-list {
     list-style: none;
     display: flex;
-    gap: 40px; 
+    gap: 30px; 
+    margin-left: 8%;
+    margin-top: 5%;
+
+  }
+  
+  .filter-item {
+    cursor: pointer;
+    font-weight: 500;
+    color: #929292;
+
+    text-transform: uppercase;
+    font-family: Catamaran sans-serif;
+    font-size: 12px;
+  }
+  
+  .filter-item.active {
+    border-bottom: 2px solid black; 
+    font-size: 12px;
+    gap: 30px;
+
+    
+  }
+  
+  .filter-action {
+    font-family: Catamaran sans-serif;
+    
+
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 12px;
+    
+    display: flex;
+margin-top: 5%;
+margin-right: 10%;
+color: #010101;
+
+}
+  
+  .filter-action i {
+    margin-left: 5px; 
+  }
+ 
+}
+
+
+
+
+/* Standard Laptop (1440px) */
+@media (max-width: 1440px) {
+ 
+  .category-filter-container {
+    padding: 20px;
+  }
+  
+
+  .filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+  }
+
+   
+ 
+  .filter-list {
+    list-style: none;
+    display: flex;
+    gap: 20px; 
     margin-left: 13%;
     margin-top: 5%;
 
@@ -26,15 +108,21 @@
 
     text-transform: uppercase;
     font-family: Catamaran sans-serif;
+    font-size: 12px;
   }
   
   .filter-item.active {
     border-bottom: 2px solid black; 
+    font-size: 12px;
+    gap: 20px;
+
+    
   }
   
   .filter-action {
     cursor: pointer;
     font-weight: 600;
+    font-size: 12px;
     
     display: flex;
 margin-top: 5%;
@@ -46,4 +134,4 @@ color: #929292;
   .filter-action i {
     margin-left: 5px; 
   }
-  
+}
