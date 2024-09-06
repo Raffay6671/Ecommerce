@@ -1,0 +1,38 @@
+.cartDropdown {
+    background-color: rgb(255, 255, 255);
+    width: 8%;
+    right: 0;
+    z-index: 1;
+    position: fixed;
+    top: 60%;
+    height: 42px;
+
+
+}
+
+
+
+.cartDropdown_Position {
+    display: flex;
+
+    margin-top: 10%;
+    margin-left: 10%;
+    gap: 10px;
+}
+
+.cartDropdown_Position h1{
+
+ color: rgb(15, 15, 15);
+ font-family: 'Heebo', sans-serif !important;
+ font-size: 10px;
+ letter-spacing: .11em !important;
+ font-weight: 600;
+ margin-top: 3%;
+}
+
+.cartDropdown_Position i{
+
+    color: #ef2853;
+    
+   }
+   

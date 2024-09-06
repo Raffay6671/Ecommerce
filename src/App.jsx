@@ -6,6 +6,7 @@ import ProductShowcase from "./components/productShowcase/ProductShowcase.jsx";
 import FooterComponent from "./components/footerComponent/FooterComponent.jsx";
 import SidePanel from "./components/sidePanel/SidePanel.jsx";
 import ThemeDropdown from "./components/themeDropdown/ThemeDropdown.jsx";
+import CartSidePanel from "./components/cartSidePanel/CartSidePanel.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <ProductShowcase />
       <FooterComponent />
       <ThemeDropdown />
+      <CartSidePanel />
     </>
   );
 }
