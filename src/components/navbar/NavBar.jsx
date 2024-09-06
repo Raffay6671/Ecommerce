@@ -17,11 +17,11 @@ const NavBar = () => {
     }
   };
 
-  const handleMouseLeave = (e) => {
-    if (!e.relatedTarget || !e.relatedTarget.closest(".hoverPanels")) {
-      setIsShown(false);
-    }
-  };
+  // const handleMouseLeave = (e) => {
+  //   if (!e.relatedTarget || !e.relatedTarget.closest(".hoverPanels")) {
+  //     setIsShown(false);
+  //   }
+  // };
 
   window.addEventListener("scroll", handleScroll);
 
@@ -30,44 +30,36 @@ const NavBar = () => {
       <nav className="navbar">
         <div className="navbar-container">
           <div className="navbar-left">
-            <a
-              href="/"
-              className="nav-link"
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {" "}
-              HOME
-            </a>
-
-            <a
-              href="/"
-              className="nav-link"
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {" "}
-              SHOP
-            </a>
-
-            <a
-              href="/"
-              className="nav-link"
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {" "}
-              PAGES
-            </a>
-            <a
-              href="/"
-              className="nav-link"
-              onMouseEnter={() => setIsShown(true)}
-              onMouseLeave={handleMouseLeave}
-            >
-              {" "}
-              ELEMENTS
-            </a>
+            <ul>
+              <li>
+                <a href="/">HOME</a>
+              </li>
+              <li>
+                <a href="/">SHOP</a>
+                <a href="/">
+                  <ul className="submenu">
+                    <li>
+                      <a href="#">SHOP TYPES</a>
+                    </li>
+                    <li>
+                      <a href="#">PRODUCT TYPES</a>
+                    </li>
+                    <li>
+                      <a href="#">FEATURED</a>
+                    </li>
+                    <li>
+                      <a href="#">LAYOUTS</a>
+                    </li>
+                  </ul>
+                </a>
+              </li>
+              <li>
+                <a href="/">PAGES</a>
+              </li>
+              <li>
+                <a href="/">ELEMENTS</a>
+              </li>
+            </ul>
           </div>
           <div className="navbar-center">
             <img src="src/assets/images/Depot.png" alt="Depot" />
@@ -94,14 +86,6 @@ const NavBar = () => {
           toggleSidePanel={toggleSidePanel}
           setIsSidePanelOpen={setIsSidePanelOpen}
         />
-      </div>
-
-      <div
-        className={isShown ? "hoverPanels" : "hoverPanels open"}
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={handleMouseLeave}
-      >
-        <HoverPanels />
       </div>
     </>
   );

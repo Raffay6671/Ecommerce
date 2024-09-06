@@ -6,13 +6,16 @@ body {
 
 .navbar {
     width: 100%;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px 20px; 
+    box-shadow: 0 2px 4px rgba(98, 97, 97, 0.1);
+    /* padding: 20px 20px;  */
     display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 110px; 
+    /* background-color: rgba(44, 46, 45, 0.775); */
+
     z-index: -1;
+    height: 10vh;
 }
 
 
@@ -22,14 +25,87 @@ body {
     align-items: center;
     width: 100%;
     margin: 0 auto;
+    height: 100%;
 }
 
 .navbar-left {
     margin-top: 1%;
     display: flex;   
-     font-family: Catamaran, sans-serif;
-    font-weight: 700;
+    font-family: Catamaran, sans-serif;
+    font-weight: 600;
     margin-left: 10%;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+.navbar-left ul {
+    list-style: none;
+    height: 10%;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    display: flex;
+    /* background-color: pink; */
+}
+
+
+
+.navbar-left ul li {
+    margin-top: 7.4%;
+    position: relative;
+    width: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+
+}
+
+
+
+.navbar-left ul li a {
+    text-decoration: none;
+    color: black;
+    padding: 20px 0;
+    display: block;
+}
+
+.navbar-left ul li a:hover {
+    color: rgb(103, 94, 94);
+}
+
+
+.submenu {
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    
+    width: 68vw;
+
+    opacity: 0.9;
+    list-style: none;
+    
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    gap:50px;
+    
+}
+
+.submenu li a {
+    padding: 10px 15px;
+    white-space: nowrap;
+    color: rgb(0, 0, 0) !important;
+
+
+}
+
+.navbar-left ul li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    height: 58vh;
+
 }
 
 .navbar-center {

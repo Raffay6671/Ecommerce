@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import "../productShowcase/productShowcase-module.css";
 
 const products = [
@@ -64,17 +65,49 @@ const products = [
 ];
 
 const ProductShowcase = () => {
+  const [hoveredProductId, setHoveredProductId] = useState(null);
+
   return (
-    <div className="product-showcase-container">
-      {products.map((product) => (
-        <div key={product.id} className="product-item">
-          <img src={product.image} alt={product.name} />
-          <div className="product-label">{product.label}</div>
-          <div className="product-name">{product.name}</div>
-          <div className="product-price">{product.price}</div>
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="product-showcase-container">
+        {products.map((product) => (
+          <a
+            href="https://github.com/raffay6671"
+            key={product.id}
+            className="product-item"
+            onMouseEnter={() => setHoveredProductId(product.id)}
+            onMouseLeave={() => setHoveredProductId(null)}
+          >
+            <img src={product.image} alt={product.name} />
+
+           
+            {hoveredProductId === product.id ? (
+              <div className="blowup">
+                <div className="panel">
+                  <h4>QUICK LOOK</h4>
+                </div>
+                <div className="panel-image">
+                  <i className="fas fa-heart heart-icon"></i>
+                </div>
+              </div>
+            ) : (
+              <div className="blowup open">
+                <div className="panel">
+                  <h4>QUICK LOOK</h4>
+                </div>
+                <div className="panel-image">
+                  <i className="fas fa-heart heart-icon"></i>
+                </div>
+              </div>
+            )}
+
+            <div className="product-label">{product.label}</div>
+            <div className="product-name">{product.name}</div>
+            <div className="product-price">{product.price}</div>
+          </a>
+        ))}
+      </div>
+    </>
   );
 };
 
