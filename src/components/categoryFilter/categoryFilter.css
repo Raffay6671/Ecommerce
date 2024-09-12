@@ -10,6 +10,7 @@
 
   .category-filter-container {
     padding: 20px;
+    
   }
   
 
@@ -49,25 +50,134 @@
 
     
   }
-  
   .filter-action {
-    font-family: Catamaran sans-serif;
-    
-
+    height: 10vh;
+    font-family: 'Catamaran', sans-serif;
     cursor: pointer;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 12px;
-    
     display: flex;
-margin-top: 5%;
-margin-right: 10%;
-color: #010101;
+    align-items: center; 
+   margin-top: 50px;
+    margin-right: 10%;
+    color: #010101;
+    justify-content: center;
+    position: relative; 
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.filter-action:hover {
+}
+
+.filter-action i {
+    margin-left: 5px;
+    font-size: 15px;
+    transition: transform 0.3s ease; 
+}
+
+.filter-action:hover i {
+}
+
+.filter-panel {
+  cursor: default;
+  opacity: 0; 
+  visibility: hidden; 
+  position: absolute; 
+  top: 100%; 
+  background-color: #212121;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+  padding: 10px; 
+  z-index: 1000;
+  width: 30vw;
+  height: 50vh;
+  font-family: 'Catamaran', sans-serif;
+  color: white;
+  right: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.filter-action:hover .filter-panel {
+  opacity: 1; 
+  visibility: visible; 
+}
+
+
+.InsideItems {
+  
+  list-style: none; 
+ 
+  height: 40vh;
+  
 
 }
+
+
+.InsideItems li {
+  gap: 100px;
+  display: flex;
+  font-stretch: 100%;
   
-  .filter-action i {
-    margin-left: 5px; 
-  }
+  
+  list-style: none; 
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 8%;
+  letter-spacing: 2px;
+  
+
+}
+
+.SortItems {
+  left: 0;
+  padding: 0; margin: 0;
+  height: 40vh;
+}
+
+.ListSortItems ul{
+  padding: 0; margin: 0;
+  margin-top: 28%;
+  
+}
+
+
+.ListSortItems ul li{
+  width: 100%;
+  
+
+}
+.ListSortItems ul li a{
+  color: #929292;
+  text-decoration: none; 
+  font-size: 12px;
+  left:0;
+  margin-top: 10px;
+}
+
+
+.PriceItems {
+  height: full;
+}
+
+.ListPriceItems ul {
+  padding: 0; margin: 0;
+  margin-top: 28%;
+
+  
+}
+.ListPriceItems ul li a {
+  color: #929292;
+  text-decoration: none; 
+  font-size: 12px;
+  margin-top: 11.5px;
+}
+
+
+.ListPriceItems ul li{
+  
+  left: 0;
+
+}
  
 }
 

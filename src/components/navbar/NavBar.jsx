@@ -6,6 +6,7 @@ import HoverPanels from "../hoverPanels/HoverPanels";
 const NavBar = () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
   const [isShown, setIsShown] = useState(false);
+  const [isLogin, setIsLogin] = useState(false);
 
   const toggleSidePanel = (event) => {
     setIsSidePanelOpen(!isSidePanelOpen);
@@ -17,11 +18,14 @@ const NavBar = () => {
     }
   };
 
-  // const handleMouseLeave = (e) => {
-  //   if (!e.relatedTarget || !e.relatedTarget.closest(".hoverPanels")) {
-  //     setIsShown(false);
-  //   }
-  // };
+  const manageLogin = () => {
+    console.log("Login", isLogin);
+
+    if (isLogin === false) {
+      setIsLogin(true);
+      console.log("Login", isLogin);
+    }
+  };
 
   window.addEventListener("scroll", handleScroll);
 
@@ -68,9 +72,38 @@ const NavBar = () => {
             <a href="/" className="nav-link">
               CART<span className="cart-amount">($0)</span>
             </a>
-            <a href="/" className="nav-link">
+
+            <a href="/" className="nav-link" onClick={manageLogin}>
               <i className="fa-regular fa-user"></i>LOGIN
             </a>
+
+            <div className={`Login ${isLogin === false ? "hidden" : ""}`}>
+              <div className="login-panel">
+                <h2>Login</h2>
+                <form>
+                  <label htmlFor="username">Username</label>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    required
+                  />
+
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+
+                  <button type="submit">Login</button>
+                </form>
+              </div>
+            </div>
+
             <a href="/" className="nav-link">
               <i className="fa fa-search"></i>
             </a>

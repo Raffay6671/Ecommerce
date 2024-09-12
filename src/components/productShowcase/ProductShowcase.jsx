@@ -67,6 +67,8 @@ const products = [
 const ProductShowcase = () => {
   const [hoveredProductId, setHoveredProductId] = useState(null);
 
+  const [AddtoCart, setAddtoCart] = useState(null);
+
   return (
     <>
       <div className="product-showcase-container">
@@ -80,7 +82,6 @@ const ProductShowcase = () => {
           >
             <img src={product.image} alt={product.name} />
 
-           
             {hoveredProductId === product.id ? (
               <div className="blowup">
                 <div className="panel">
@@ -101,9 +102,25 @@ const ProductShowcase = () => {
               </div>
             )}
 
-            <div className="product-label">{product.label}</div>
             <div className="product-name">{product.name}</div>
-            <div className="product-price">{product.price}</div>
+
+            <div
+              className={`product-price ${
+                hoveredProductId === product.id ? "hidden" : ""
+              }`}
+            >
+              {product.price}
+            </div>
+
+            <div className="CartOption">
+              <div className="CartOptionBorder">
+                <h4
+                  className={hoveredProductId === product.id ? "visible" : ""}
+                >
+                  ADD TO CART
+                </h4>
+              </div>
+            </div>
           </a>
         ))}
       </div>

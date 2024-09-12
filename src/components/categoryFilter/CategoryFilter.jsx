@@ -13,8 +13,70 @@ const CategoryFilter = () => {
           <li className="filter-item">VASES</li>
           <li className="filter-item">BASICS</li>
         </ul>
+
         <div className="filter-action">
           FILTER <i className="fa fa-chevron-down"></i>
+          <div className="filter-panel">
+            <ul className="InsideItems">
+              <li>
+                <div className="SortItems">
+                  <h6>SORT BY</h6>
+                  <div className="ListSortItems">
+                    <ul>
+                      <li>
+                        <a href="/">Default</a>
+                      </li>
+                      <li>
+                        <a href="/">Popularity</a>
+                      </li>
+
+                      <li>
+                        <a href="/">Average rating</a>
+                      </li>
+                      <li>
+                        <a href="/">Newness</a>
+                      </li>
+
+                      <li>
+                        <a href="/">Price: low to high</a>
+                      </li>
+                      <li>
+                        <a href="/">Price: high to low</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="PriceItems">
+                  <h6>PRICE RANGE</h6>
+                  <div className="ListPriceItems">
+                    <ul>
+                      <li>
+                        <a href="/">All</a>
+                      </li>
+                      <li>
+                        <a href="/">$0-$10</a>
+                      </li>
+
+                      <li>
+                        <a href="/">$10-$20</a>
+                      </li>
+                      <li>
+                        <a href="/">$20-$30</a>
+                      </li>
+
+                      <li>
+                        <a href="/">$30-$40</a>
+                      </li>
+                      <li>
+                        <a href="/">40$+</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
