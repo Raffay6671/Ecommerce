@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../navbar/navbar-module.css";
 import SidePanel from "../sidePanel/SidePanel";
 import HoverPanels from "../hoverPanels/HoverPanels";
+import { Link } from "react-router-dom"; 
 
 const NavBar = () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const loginPanelRef = useRef(null); // Reference for the login panel
 
   const toggleSidePanel = (event) => {
     setIsSidePanelOpen(!isSidePanelOpen);
@@ -18,21 +20,43 @@ const NavBar = () => {
     }
   };
 
-  const manageLogin = () => {
-    console.log("Login", isLogin);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll); // Cleanup when component unmounts
+    };
+  }, [isSidePanelOpen]);
 
-    if (isLogin === false) {
-      setIsLogin(true);
-      console.log("Login", isLogin);
-    }
+  const manageLogin = () => {
+    setIsLogin(!isLogin);
   };
 
-  window.addEventListener("scroll", handleScroll);
+  // Handle click outside the login panel to close it
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        loginPanelRef.current &&
+        !loginPanelRef.current.contains(event.target)
+      ) {
+        setIsLogin(false); // Close login panel if clicked outside
+      }
+    };
+
+    if (isLogin) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside); // Cleanup when unmounted
+    };
+  }, [isLogin]);
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar-container">
+      <nav className={`navbar ${isLogin ? "blurred" : ""}`}>
+        <div className={`navbar-container ${isLogin ? "blurred" : ""}`}>
           <div className="navbar-left">
             <ul>
               <li>
@@ -69,40 +93,13 @@ const NavBar = () => {
             <img src="src/assets/images/Depot.png" alt="Depot" />
           </div>
           <div className="navbar-right">
-            <a href="/" className="nav-link">
+            <Link to="/cart" className="nav-link">
               CART<span className="cart-amount">($0)</span>
-            </a>
+            </Link>
 
-            <a href="/" className="nav-link" onClick={manageLogin}>
+            <a href="#" className="nav-link" onClick={manageLogin}>
               <i className="fa-regular fa-user"></i>LOGIN
             </a>
-
-            <div className={`Login ${isLogin === false ? "hidden" : ""}`}>
-              <div className="login-panel">
-                <h2>Login</h2>
-                <form>
-                  <label htmlFor="username">Username</label>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Enter your username"
-                    required
-                  />
-
-                  <label htmlFor="password">Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    required
-                  />
-
-                  <button type="submit">Login</button>
-                </form>
-              </div>
-            </div>
 
             <a href="/" className="nav-link">
               <i className="fa fa-search"></i>
@@ -113,6 +110,61 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
+      {/* ****************Outside the navBar************ */}
+      {isLogin && (
+        <div className="login-overlay">
+          <div className="Login" ref={loginPanelRef}>
+            <div className="login-panel">
+              <div className="top-Text">
+                <a href="">
+                  <div className="login-Text">
+                    <p>LOGIN</p>
+                  </div>
+                </a>
+                <a href="">
+                  <div className="register-Text">
+                    <p>REGISTER</p>
+                  </div>
+                </a>
+              </div>
+
+              <form>
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="User Name"
+                  required
+                />
+
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+
+                <div class="form-group">
+                  <label class="checkbox-label">
+                    <input
+                      type="checkbox"
+                      name="remember"
+                      class="custom-checkbox"
+                    />
+                    Remember me
+                  </label>
+                  <a href="#" class="forgot-password">
+                    Lost your password?
+                  </a>
+                </div>
+
+                <button type="submit">LOGIN</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className={isSidePanelOpen ? "sideBar" : "sideBar open"}>
         <SidePanel

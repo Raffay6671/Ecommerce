@@ -1,0 +1,934 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.cartNavbar {
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(98, 97, 97, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 110px; 
+    z-index: -1;
+    /* height: 10vh; */
+}
+
+.cartNavbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.cartNavbar-left {
+    position: absolute;
+    /* left: 10%;
+    transform: translateX(-50%); */
+    text-align: center;
+    /* margin-top: 1.5%; */
+}
+
+.cartNavbar-left img {
+    /* height: 20px;
+    width: 100px; */
+}
+
+
+
+.cartNavbar-right {
+    display: flex;
+    font-family: Catamaran, sans-serif;
+    font-weight: 700;
+    margin-top: 1%;
+    margin-right: 9%;
+    margin-left: 30%;
+    gap: 5px !important;
+}
+
+.adjustPrevious {
+    display: flex;   
+    font-family: Catamaran, sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.adjustPrevious ul {
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 0;
+    display: flex;
+}
+
+.adjustPrevious ul li {
+    margin-top: 1%;
+    position: relative;
+    width: 100px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.adjustPrevious ul li a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.adjustPrevious ul li a:hover {
+    color: rgb(103, 94, 94);
+}
+
+.cartNav-link {
+    display: inline-flex; 
+    align-items: center;
+    gap: 8px; 
+    text-decoration: none;
+    color: black;
+    margin: 0 15px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.cart-amount {
+    font-weight: normal; 
+    color: grey;
+}
+
+.cartNav-link i {
+    display: inline-block;
+    font-size: 20px;
+}
+
+.cartNav-link:hover {
+    color: grey;
+}
+
+.fa {
+    font-size: 18px;
+    margin-left: 10px;
+} 
+
+
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    /* background-color: pink; */
+  }
+  
+  .shopping-cart {
+    /* background-color: #6a3333; */
+    padding: 20px;
+    border-radius: 8px;
+    margin-left: 8%;/* This  */
+    width: 140%;
+  }
+  .shopping-cart h2 {
+    font-family: 
+    sans-serif;
+    font-size: 25px;/* This  */
+    font-weight: 500;/* This  */
+  }
+
+
+  .cart-item {
+    display: flex;
+    /* background-color: blue; */
+    width: 100%;
+
+  }
+
+  .cart-item i{
+    margin-top: 12.5%;
+    margin-right: 2%;
+  }
+
+  
+
+  .cart-item  img {
+    margin-top: 8%;/* This  */
+   
+
+   width: 100px;/* This  */
+  height: 100px;/* This  */
+  object-fit: cover;
+  }
+
+
+.cart-item-details {
+    margin-left: 3%; /* This  */
+    margin-top: 12%; /* This  */
+    text-wrap:nowrap;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 12px;
+    
+
+}
+
+.FirstPrice {
+    margin-left: 40%;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 40px;
+    margin-left: 13%;
+    margin-top: 11%;
+  }
+
+  .quantity-container p {
+    margin-right: 15%;
+}
+  
+  .quantity-selector {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80px;
+    margin-top: 5px;
+  }
+  
+  .quantity-selector button {
+    background-color: #f9f9f9;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .quantity-selector span {
+    margin: 0 10px;
+    font-size: 16px;
+  }
+  
+  .quantity-selector button:active {
+    background-color: #d1d1d1;
+  }
+  
+  .decrement-btn, .increment-btn {
+    font-size: 18px;
+  }
+  
+
+
+  .LastPrice {
+    /* background-color: aqua; */
+    margin-top: 12%;
+    margin-left: 6%;
+  font-weight:bolder;  
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------- Media Queries for Responsiveness ----------------- */
+
+/* large Screens (2560px) */
+@media (min-width: 2560px) {
+
+    .sidebar {
+        display: none;
+    }
+    .cartNavbar {
+        height: 15vh; 
+        /* background-color: rgb(87, 17, 29); */
+    }
+    .cartNavbar-left {
+        left: 10%; /* Adjust left positioning or remove it for mobile */
+        transform: translateX(-50%); /* Can be removed for smaller screens */
+        margin-top: 1.5%; /* Adjust margin as needed */
+    }
+    
+    .cartNavbar-left img {
+        height: 50px; /* Adjust image size based on screen size */
+        width: 240px; /* Adjust width based on screen size */
+    }
+
+
+    /* ***********************NEXT STAGE******************** */
+    
+    .cartNavbar-right {
+        margin-right: 9%; /* Adjust margin-right based on screen size */
+        margin-left: 30%; /* Adjust margin-left based on screen size */
+        gap: 5px; /* Adjust gap for responsiveness */
+    }
+    
+    .adjustPrevious {
+        font-size: 20px; /* Adjust font-size for responsiveness */
+    }
+    
+    .adjustPrevious ul {
+        display: flex; /* May need to switch to column layout on smaller screens */
+    }
+    
+    .adjustPrevious ul li {
+        width: 170px; /* Adjust width for responsiveness */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .AdjustAfter {
+        display: flex;
+        margin-top: 12px;
+        margin-left: 30px;
+    }
+    .cartNav-link {
+        font-size: 20px; /* Adjust font-size for responsiveness */
+        margin-left: 20px; /* Adjust margin for spacing */
+        margin-right: 25px; /* Adjust margin for spacing */
+
+        gap: 8px; /* Adjust gap between icons and text */
+        
+    }
+    
+    .cartNav-linkSetting {
+        position: absolute;
+
+        margin-left: -10px !important;
+        
+    }
+
+    .ElementsAdjust {
+        margin-left: 30px !important;
+    }
+    
+    .cart-amount {
+        font-size: 20px; /* Adjust font-size for responsiveness */
+    }
+    
+    .cartNav-link i {
+        font-size: 20px; /* Adjust icon size for responsiveness */
+    }
+    
+    .fa {
+        font-size: 18px; /* Adjust icon size for responsiveness */
+    }
+    
+    .hamburger-menu {
+        display: none;
+        
+        
+    }
+    
+}
+
+
+
+/* Large Laptop (1440px) */
+@media (max-width: 2559px) and (min-width: 1440px) {
+
+    .sidebar {
+        display: none;
+    }
+    
+    .cartNavbar {
+        height: 10vh; /* Adjust height based on screen size */
+        /* background-color: pink; */
+    }
+    .cartNavbar-left {
+        left: 10%; /* Adjust left positioning or remove it for mobile */
+        transform: translateX(-50%); /* Can be removed for smaller screens */
+        margin-top: 1.5%; /* Adjust margin as needed */
+    }
+    
+    .cartNavbar-left img {
+        height: 20px; /* Adjust image size based on screen size */
+        width: 100px; /* Adjust width based on screen size */
+    } 
+
+    /* ***********************NEXT STAGE******************** */
+    
+    .cartNavbar-right {
+        margin-right: 9%; /* Adjust margin-right based on screen size */
+        margin-left: 40%; /* Adjust margin-left based on screen size */
+        gap: 5px; /* Adjust gap for responsiveness */
+    }
+    
+    .adjustPrevious {
+        font-size: 10px; /* Adjust font-size for responsiveness */
+    }
+    
+    .adjustPrevious ul {
+        display: flex; /* May need to switch to column layout on smaller screens */
+    }
+    
+    .adjustPrevious ul li {
+        width: 80px; /* Adjust width for responsiveness */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .AdjustAfter {
+        display: flex;
+        margin-top: 5px;
+        margin-left: 30px;
+    }
+    .cartNav-link {
+        font-size: 10px; /* Adjust font-size for responsiveness */
+        margin-left: 20px; /* Adjust margin for spacing */
+        margin-right: 25px; /* Adjust margin for spacing */
+
+        gap: 8px; /* Adjust gap between icons and text */
+        white-space: nowrap;  /* Prevent line break */
+
+        
+    }
+
+    .ElementsAdjust {
+        margin-left: 30px !important;
+    }
+    
+    .cart-amount {
+        font-size: 11px; /* Adjust font-size for responsiveness */
+    }
+    
+    .cartNav-link i {
+        font-size: 10px; /* Adjust icon size for responsiveness */
+    }
+    
+    .fa {
+        font-size: 11px; /* Adjust icon size for responsiveness */
+    }
+    
+    .hamburger-menu {
+        display: none;
+        
+        
+    }
+
+}
+
+
+
+
+
+/* Simple Laptop and Below (1439px and smaller) */
+@media (min-width: 768px) and  (max-width: 1439px){
+    
+        .cartNavbar {
+            height: 10vh; /* Adjust height based on screen size */
+        }
+        .cartNavbar-left {
+            left: 18%; /* Adjust left positioning or remove it for mobile */
+            transform: translateX(-50%); /* Can be removed for smaller screens */
+            margin-top: 1.5%; /* Adjust margin as needed */
+        }
+        
+        .cartNavbar-left img {
+            height: 20px; /* Adjust image size based on screen size */
+            width: 100px; /* Adjust width based on screen size */
+        } 
+        
+    .cartNavbar-right {
+        display: none;
+    }
+    
+
+    /* Display a hamburger menu for smaller screens */
+    
+
+    .cartNavbar-right {
+        display: none;
+        
+    }
+    
+    
+
+/* Sidebar hidden off-screen to the left */
+.sidebar {
+    
+    position: fixed;
+    top:0;
+    right: 0;
+    height: 100%;
+    background-color: #111;
+    width: 280px;
+    display: block;
+    transform: translateX(0); 
+    transition: transform 0.4s cubic-bezier(0.35, 0, 0.58, 1); 
+    z-index: 1000;
+}
+
+/* When the sidebar is open, slide it fully into view on the right */
+.sidebar.open {
+    transform: translateX(100%); 
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    margin-left: 80%;
+}
+
+.hamburger-menu i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.closeMenu {
+    margin-top: 10%;
+    margin-left: 10%;
+    text-align: right;
+    color: white;
+    width: 80%;
+    padding-bottom: 7%;
+    padding-right: 1%;
+    cursor: pointer; 
+}
+
+/* Menu items container */
+.MenuItems {
+    margin-left: 15%;
+    margin-top: 15%;
+}
+
+/* Styling for the menu items */
+.MenuItems ul {
+    list-style: none; /* Remove default bullet points */
+    
+}
+
+.MenuItems ul li {
+    margin-bottom: 10px; /* Space between the menu items */
+}
+
+.MenuItems ul li a {
+    text-decoration: none; /* Remove underline */
+    color: white; /* White text */
+    font-size: 15px; /* Increase font size for better visibility */
+    display: flex;
+    align-items: center;
+    padding: 10px 0; /* Add some padding for better clickable area */
+    transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.MenuItems ul li a:hover {
+    color: #d3d3d3; /* Change color on hover for better UX */
+}
+
+
+/* AdjustAfter for the cart, login links, and bars icon */
+.AdjustAfterSideBar {
+    margin-top: 20px;
+}
+
+.AdjustAfterSideBar li {
+    margin-bottom: 15px; /* Space between cart, login, and bars icons */
+}
+
+/* Cart link in the sidebar */
+.cartNav-linkSideBar {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+/* Cart amount */
+.cart-amountSideBar {
+    font-weight: normal;
+    color: grey;
+    margin-left: 10px;
+}
+
+/* Icons for cart and login in the sidebar */
+.cartNav-linkSideBar i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+.cartNav-linkSideBar:hover {
+    color: #d3d3d3;
+}
+
+/* Styling for the "Elements" link in the sidebar */
+.ElementsAdjustSideBar {
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ElementsAdjustSideBar:hover {
+    color: #d3d3d3; /* Hover effect for Elements */
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* For Mobiles */
+@media (min-width: 375px) and  (max-width: 767px){
+    
+    .cartNavbar {
+        height: 10vh; /* Adjust height based on screen size */
+    }
+    .cartNavbar-left {
+        left: 18%; /* Adjust left positioning or remove it for mobile */
+        transform: translateX(-50%); /* Can be removed for smaller screens */
+        margin-top: 1.5%; /* Adjust margin as needed */
+    }
+    
+    .cartNavbar-left img {
+        height: 20px; /* Adjust image size based on screen size */
+        width: 100px; /* Adjust width based on screen size */
+    } 
+    
+.cartNavbar-right {
+    display: none;
+}
+
+
+/* Display a hamburger menu for smaller screens */
+
+
+.cartNavbar-right {
+    display: none;
+    
+}
+
+
+
+/* Sidebar hidden off-screen to the left */
+.sidebar {
+
+position: fixed;
+top:0;
+right: 0;
+height: 100%;
+background-color: #111;
+width: 280px;
+display: block;
+transform: translateX(0); 
+transition: transform 0.4s cubic-bezier(0.35, 0, 0.58, 1); 
+z-index: 1000;
+}
+
+/* When the sidebar is open, slide it fully into view on the right */
+.sidebar.open {
+transform: translateX(100%); 
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+display: flex;
+align-items: center;
+font-size: 20px;
+color: black;
+cursor: pointer;
+margin-left: 70%;
+}
+
+.hamburger-menu i {
+font-size: 24px;
+margin-right: 10px;
+}
+
+.closeMenu {
+margin-top: 10%;
+margin-left: 10%;
+text-align: right;
+color: white;
+width: 80%;
+padding-bottom: 7%;
+padding-right: 1%;
+cursor: pointer; 
+}
+
+/* Menu items container */
+.MenuItems {
+margin-left: 15%;
+margin-top: 15%;
+}
+
+/* Styling for the menu items */
+.MenuItems ul {
+list-style: none; /* Remove default bullet points */
+
+}
+
+.MenuItems ul li {
+margin-bottom: 10px; /* Space between the menu items */
+}
+
+.MenuItems ul li a {
+text-decoration: none; /* Remove underline */
+color: white; /* White text */
+font-size: 15px; /* Increase font size for better visibility */
+display: flex;
+align-items: center;
+padding: 10px 0; /* Add some padding for better clickable area */
+transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.MenuItems ul li a:hover {
+color: #d3d3d3; /* Change color on hover for better UX */
+}
+
+
+/* AdjustAfter for the cart, login links, and bars icon */
+.AdjustAfterSideBar {
+margin-top: 20px;
+}
+
+.AdjustAfterSideBar li {
+margin-bottom: 15px; /* Space between cart, login, and bars icons */
+}
+
+/* Cart link in the sidebar */
+.cartNav-linkSideBar {
+color: white;
+text-decoration: none;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+}
+
+/* Cart amount */
+.cart-amountSideBar {
+font-weight: normal;
+color: grey;
+margin-left: 10px;
+}
+
+/* Icons for cart and login in the sidebar */
+.cartNav-linkSideBar i {
+margin-right: 10px;
+font-size: 20px;
+color: white;
+}
+
+.cartNav-linkSideBar:hover {
+color: #d3d3d3;
+}
+
+/* Styling for the "Elements" link in the sidebar */
+.ElementsAdjustSideBar {
+font-size: 18px;
+color: white;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.ElementsAdjustSideBar:hover {
+color: #d3d3d3; /* Hover effect for Elements */
+}
+
+
+}
+
+
+
+
+
+
+
+/* For Mobiles */
+@media (max-width: 374px){
+    
+    .cartNavbar {
+        height: 10vh; /* Adjust height based on screen size */
+    }
+    .cartNavbar-left {
+        left: 18%; /* Adjust left positioning or remove it for mobile */
+        transform: translateX(-50%); /* Can be removed for smaller screens */
+        margin-top: 1.5%; /* Adjust margin as needed */
+    }
+    
+    .cartNavbar-left img {
+        height: 20px; /* Adjust image size based on screen size */
+        width: 100px; /* Adjust width based on screen size */
+    } 
+    
+.cartNavbar-right {
+    display: none;
+}
+
+
+/* Display a hamburger menu for smaller screens */
+
+
+.cartNavbar-right {
+    display: none;
+    
+}
+
+
+
+/* Sidebar hidden off-screen to the left */
+.sidebar {
+
+position: fixed;
+top:0;
+right: 0;
+height: 100%;
+background-color: #111;
+width: 100%;
+display: block;
+transform: translateX(0); 
+transition: transform 0.4s cubic-bezier(0.35, 0, 0.58, 1); 
+z-index: 1000;
+}
+
+/* When the sidebar is open, slide it fully into view on the right */
+.sidebar.open {
+transform: translateX(100%); 
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+display: flex;
+align-items: center;
+font-size: 20px;
+color: black;
+cursor: pointer;
+margin-left: 67%;
+}
+
+.hamburger-menu i {
+font-size: 24px;
+margin-right: 10px;
+}
+
+.closeMenu {
+margin-top: 10%;
+margin-left: 10%;
+text-align: right;
+color: white;
+width: 80%;
+padding-bottom: 7%;
+padding-right: 1%;
+cursor: pointer; 
+}
+
+/* Menu items container */
+.MenuItems {
+margin-left: 15%;
+margin-top: 15%;
+}
+
+/* Styling for the menu items */
+.MenuItems ul {
+list-style: none; /* Remove default bullet points */
+
+}
+
+.MenuItems ul li {
+margin-bottom: 10px; /* Space between the menu items */
+}
+
+.MenuItems ul li a {
+text-decoration: none; /* Remove underline */
+color: white; /* White text */
+font-size: 15px; /* Increase font size for better visibility */
+display: flex;
+align-items: center;
+padding: 10px 0; /* Add some padding for better clickable area */
+transition: color 0.3s ease; /* Smooth hover effect */
+}
+
+.MenuItems ul li a:hover {
+color: #d3d3d3; /* Change color on hover for better UX */
+}
+
+
+/* AdjustAfter for the cart, login links, and bars icon */
+.AdjustAfterSideBar {
+margin-top: 20px;
+}
+
+.AdjustAfterSideBar li {
+margin-bottom: 15px; /* Space between cart, login, and bars icons */
+}
+
+/* Cart link in the sidebar */
+.cartNav-linkSideBar {
+color: white;
+text-decoration: none;
+font-size: 18px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 10px 0;
+}
+
+/* Cart amount */
+.cart-amountSideBar {
+font-weight: normal;
+color: grey;
+margin-left: 10px;
+}
+
+/* Icons for cart and login in the sidebar */
+.cartNav-linkSideBar i {
+margin-right: 10px;
+font-size: 20px;
+color: white;
+}
+
+.cartNav-linkSideBar:hover {
+color: #d3d3d3;
+}
+
+/* Styling for the "Elements" link in the sidebar */
+.ElementsAdjustSideBar {
+font-size: 18px;
+color: white;
+text-decoration: none;
+transition: color 0.3s ease;
+}
+
+.ElementsAdjustSideBar:hover {
+color: #d3d3d3; /* Hover effect for Elements */
+}
+
+
+}
+
+

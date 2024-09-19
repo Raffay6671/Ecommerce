@@ -1,5 +1,12 @@
 
- 
+.filter-item {
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.filter-item.active {
+  border-bottom: 2px solid #000; /* Underline effect */
+}
 
 
 
