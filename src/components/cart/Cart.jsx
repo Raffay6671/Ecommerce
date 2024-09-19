@@ -1,23 +1,33 @@
 import React, { useState, useContext } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import { Link } from "react-router-dom";
 import "../cart/cart.css";
 import CartMainBanner from "../cartMainBanner/CartMainBanner.jsx";
 import { CartContext } from "../../context/CartContext";
+import Footer from "../footerComponent/FooterComponent.jsx";
 
 const Cart = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const [quantity, setQuantity] = useState(1);
   const { cart, removeFromCart } = useContext(CartContext); // Access the cart from CartContext
 
-  const handleIncrement = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+  const [quantities, setQuantities] = useState(
+    cart.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {}) // Initialize quantity for each item
+  );
+
+  // Increment handler
+  const handleIncrement = (id) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: prevQuantities[id] + 1,
+    }));
   };
 
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity((prevQuantity) => prevQuantity - 1);
-    }
+  // Decrement handler
+  const handleDecrement = (id) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [id]: prevQuantities[id] > 1 ? prevQuantities[id] - 1 : 1, // Prevent quantity going below 1
+    }));
   };
 
   const toggleSidebar = () => {
@@ -135,40 +145,81 @@ const Cart = () => {
           ) : (
             cart.map((item, index) => (
               <div className="cart-item" key={item.id}>
-                {/* Remove item from cart (Implement this feature later) */}
                 <i
                   className="fas fa-times"
                   onClick={() => removeFromCart(item.id)}
                 ></i>
 
-                {/* Product Image */}
                 <img
                   src={item.image}
                   alt={item.name}
                   className="cart-item-image"
                 />
 
-                {/* Product Details */}
                 <span className="cart-item-details">
-                  <h3>{item.name}</h3> {/* Name of the product */}
+                  <h3>{item.name}</h3>
                   <p className="FirstPrice">{item.price}</p>{" "}
-                  
                 </span>
 
-                {/* Quantity Selector */}
                 <div className="quantity-container">
                   <p>Quantity</p>
                   <div className="quantity-selector">
-                    <button className="decrement-btn">&lt;</button>
-                    <span>1</span>
-                    <button className="increment-btn">&gt;</button>
+                    <button
+                      className="decrement-btn"
+                      onClick={() => handleDecrement(item.id)}
+                    >
+                      &lt;
+                    </button>
+                    <span>{quantities[item.id]}</span> {/* Display quantity */}
+                    <button
+                      className="increment-btn"
+                      onClick={() => handleIncrement(item.id)}
+                    >
+                      &gt;
+                    </button>
                   </div>
                 </div>
+
+                <span className="LastPrice">
+                  $
+                  {parseFloat(item.price.replace("$", "")) *
+                    quantities[item.id]}
+                </span>
               </div>
             ))
           )}
+
+          <div className="coupon-container">
+            <div className="FirstTwoItems">
+              <div class="coupon-input">
+                <input
+                  type="text"
+                  id="coupon"
+                  name="coupon"
+                  placeholder="Coupon Code"
+                />
+              </div>
+              <button className="apply-coupon">
+                <p>APPLY COUPON</p>
+              </button>
+            </div>
+
+            <div className="FinalItem">
+              <button className="update-cart">
+                <p>UPDATE CART</p>
+              </button>
+            </div>
+          </div>
+          <div className="BacktoShopping">
+            <a href="#" class="go-back">
+              <i class="fas fa-arrow-left"></i>
+              <p>Go Back Shopping</p>
+            </a>
+          </div>
         </div>
       </div>
+
+      <Footer backgroundColor="black" />
     </div>
   );
 };

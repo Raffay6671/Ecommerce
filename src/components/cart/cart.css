@@ -130,7 +130,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     margin-left: 8%;/* This  */
-    width: 140%;
+    width: 110%;
   }
   .shopping-cart h2 {
     font-family: 
@@ -144,6 +144,9 @@ body {
     display: flex;
     /* background-color: blue; */
     width: 100%;
+    border-bottom: 1px solid;
+    border-bottom: 1px solid #ddd; /* Optional border */
+
 
   }
 
@@ -160,6 +163,7 @@ body {
 
    width: 100px;/* This  */
   height: 100px;/* This  */
+  margin-bottom: 3%;
   object-fit: cover;
   }
 
@@ -236,13 +240,95 @@ body {
   font-weight:bolder;  
   }
 
-
-
-
-
-
-
-
+  .coupon-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 2px solid #ddd; /* Optional border */
+    gap: 10px; /* Optional spacing between elements */
+  }
+  
+  .FirstTwoItems {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .FinalItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  .coupon-input {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background-color: #f3f3f3;
+  }
+  
+  .coupon-input input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid transparent; 
+    background-color: #f7f7f7;
+  }
+  
+  .coupon-input input:focus {
+    border: 1px solid transparent; 
+    outline: none; 
+  }
+  
+  .apply-coupon {
+    padding: 10px 15px;
+    background-color: #f7f7f7;
+    font-family: sans-serif;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 40%;
+  }
+  
+  .apply-coupon p {
+    color: #000000;
+  }
+  
+  .update-cart {
+    padding: 10px 15px;
+    background-color: #f7f7f7;
+    font-family: sans-serif;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  
+  .update-cart p {
+    color: #989393;
+  }
+  
+  .BacktoShopping {
+    display: flex;
+    margin-top: 4%;
+    font-size: 13px;
+  }
+  
+  .BacktoShopping a {
+    display: flex;
+    align-items: center; 
+    text-decoration: none; 
+  }
+  
+  .BacktoShopping a i {
+    color: #989393;
+    margin-right: 8px; 
+  }
+  
+  .BacktoShopping a p {
+    color: #989393;
+    margin: 0; 
+  }
+  
 
 
 

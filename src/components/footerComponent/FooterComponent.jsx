@@ -1,11 +1,15 @@
 import React from "react";
 import "../footerComponent/FooterComponent.css";
 
-const FooterComponent = () => {
+const FooterComponent = ({ backgroundColor }) => {
+  const titleColor = backgroundColor === "black" ? "white" : "black"; // Ternary operator for text color
+
   return (
-    <footer className="footer-container">
+    <footer className="footer-container" style={{ backgroundColor }}>
       <div className="footer-section">
-        <h4 className="footer-title">CUSTOMER SERVICE</h4>
+        <h4 className="footer-title" style={{ color: titleColor }}>
+          CUSTOMER SERVICE
+        </h4>
         <ul className="footer-links">
           <li>
             <a href="/">Help & Contact Us</a>
@@ -23,7 +27,9 @@ const FooterComponent = () => {
       </div>
 
       <div className="footer-section">
-        <h4 className="footer-title">COMPANY</h4>
+        <h4 className="footer-title" style={{ color: titleColor }}>
+          COMPANY
+        </h4>
         <ul className="footer-links">
           <li>
             <a href="/">What We Do</a>
@@ -41,7 +47,9 @@ const FooterComponent = () => {
       </div>
 
       <div className="footer-section">
-        <h4 className="footer-title">SOCIAL MEDIA</h4>
+        <h4 className="footer-title" style={{ color: titleColor }}>
+          SOCIAL MEDIA
+        </h4>
         <ul className="footer-links">
           <li>
             <a href="/">Twitter</a>
@@ -59,7 +67,9 @@ const FooterComponent = () => {
       </div>
 
       <div className="footer-section">
-        <h4 className="footer-title">PROFILE</h4>
+        <h4 className="footer-title" style={{ color: titleColor }}>
+          PROFILE
+        </h4>
         <ul className="footer-links">
           <li>
             <a href="/">My Account</a>
