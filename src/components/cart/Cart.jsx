@@ -1,23 +1,64 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../cart/cart.css";
 import CartMainBanner from "../cartMainBanner/CartMainBanner.jsx";
 import { CartContext } from "../../context/CartContext";
 import Footer from "../footerComponent/FooterComponent.jsx";
+import SidePanel from "../sidePanel/SidePanel";
 
 const Cart = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("flatRate");
-  const { cart, removeFromCart } = useContext(CartContext); // Access the cart from CartContext
+  const { cart, removeFromCart, updateCart } = useContext(CartContext);
+
+  const [shippingCost, setShippingCost] = useState(0);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+  const [isChangeAddress, setChangeAddress] = useState(false);
+  const [isUpdateButton, setUpdateButton] = useState(false);
+  const [isMulPrice, isSetMulPrice] = useState(0);
+
+  const toggleUpdateButton = () => {
+    const updatedCart = cart.map((item) => {
+      const updatedPrice = (
+        parseFloat(item.originalPrice.replace("$", "")) * quantities[item.id]
+      ).toFixed(2);
+      return { ...item, price: `$${updatedPrice}` };
+    });
+
+    updateCart(updatedCart);
+  };
+
+  const toggleChangeAddress = () => {
+    setChangeAddress(!isChangeAddress);
+  };
+
+  const toggleSidePanel = (event) => {
+    setIsSidePanelOpen(!isSidePanelOpen);
+  };
+  const handleScroll = () => {
+    if (isSidePanelOpen) {
+      setIsSidePanelOpen(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isSidePanelOpen]);
 
   const [quantities, setQuantities] = useState(
-    cart.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {}) // Initialize quantity for each item
+    cart.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {})
   );
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
+    if (event.target.value === "flatRate") {
+      setShippingCost(10);
+    } else {
+      setShippingCost(0);
+    }
   };
 
-  // Increment handler
   const handleIncrement = (id) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
@@ -25,16 +66,28 @@ const Cart = () => {
     }));
   };
 
-  // Decrement handler
   const handleDecrement = (id) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
-      [id]: prevQuantities[id] > 1 ? prevQuantities[id] - 1 : 1, // Prevent quantity going below 1
+      [id]: prevQuantities[id] > 1 ? prevQuantities[id] - 1 : 1,
     }));
   };
 
+  const calculateTotalPrice = () => {
+    return cart
+      .reduce((total, item) => {
+        const itemPrice = parseFloat(item.price.replace("$", "")); // Use the updated price here
+        const itemTotal = itemPrice * quantities[item.id]; // Multiply by the quantity
+        return total + itemTotal; // Add to the total
+      }, 0)
+      .toFixed(2); // Return the total as a string with two decimals
+  };
+
+  const totalPrice = calculateTotalPrice();
+
+  const finalTotalPrice = (parseFloat(totalPrice) + shippingCost).toFixed(2);
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Toggle the sidebar
+    setIsSidebarOpen(!isSidebarOpen);
   };
   return (
     <div>
@@ -127,7 +180,11 @@ const Cart = () => {
                   </li>
 
                   <li>
-                    <a href="#" className="cartNav-link">
+                    <a
+                      href="#"
+                      className="cartNav-linkSide"
+                      onClick={toggleSidePanel}
+                    >
                       <i className="fa fa-bars"></i>
                     </a>
                   </li>
@@ -161,7 +218,7 @@ const Cart = () => {
 
                 <span className="cart-item-details">
                   <h3>{item.name}</h3>
-                  <p className="FirstPrice">{item.price}</p>{" "}
+                  <p className="FirstPrice">{item.originalPrice}</p>{" "}
                 </span>
 
                 <div className="quantity-container">
@@ -183,11 +240,7 @@ const Cart = () => {
                   </div>
                 </div>
 
-                <span className="LastPrice">
-                  $
-                  {parseFloat(item.price.replace("$", "")) *
-                    quantities[item.id]}
-                </span>
+                <span className="LastPrice">{item.price}</span>
               </div>
             ))
           )}
@@ -208,16 +261,16 @@ const Cart = () => {
             </div>
 
             <div className="FinalItem">
-              <button className="update-cart">
+              <button className="update-cart" onClick={toggleUpdateButton}>
                 <p>UPDATE CART</p>
               </button>
             </div>
           </div>
           <div className="BacktoShopping">
-            <a href="#" className="go-back">
+            <Link to="/" className="go-back">
               <i className="fas fa-arrow-left"></i>
               <p>Go Back Shopping</p>
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -227,7 +280,7 @@ const Cart = () => {
 
           <div className="totals-item">
             <span className="item-left">SUBTOTAL</span>
-            <span className="item-center">$810</span>
+            <span className="item-center">${totalPrice}</span>
           </div>
 
           <div className="shipping-section">
@@ -270,15 +323,34 @@ const Cart = () => {
               Shipping to <strong>Pakistan</strong>.
             </p>
 
-            <button className="change-address">
+            <button className="change-address" onClick={toggleChangeAddress}>
               CHANGE ADDRESS
               <i class="fas fa-caret-down" style={{ marginLeft: "6px" }}></i>
             </button>
+
+            <div
+              className={`address-form ${
+                isChangeAddress ? "slide-down" : "slide-up"
+              }`}
+            >
+              <select>
+                <option value="pakistan">Pakistan</option>
+              </select>
+
+              <select>
+                <option value="state">State / County</option>
+              </select>
+
+              <input type="text" placeholder="City" />
+              <input type="text" placeholder="Postcode / ZIP" />
+
+              <button className="update-btn">UPDATE</button>
+            </div>
           </div>
 
           <div className="totals-itemFinal">
-            <span>TOTAL</span>
-            <span>$810</span>
+            <span className="FinalText">TOTAL</span>
+            <span className="FinalPrice">${finalTotalPrice}</span>
           </div>
 
           <button className="checkout-button">PROCEED TO CHECKOUT</button>
@@ -286,6 +358,12 @@ const Cart = () => {
       </div>
 
       <Footer backgroundColor="black" />
+      <div className={isSidePanelOpen ? "sideBar" : "sideBar open"}>
+        <SidePanel
+          toggleSidePanel={toggleSidePanel}
+          setIsSidePanelOpen={setIsSidePanelOpen}
+        />
+      </div>
     </div>
   );
 };

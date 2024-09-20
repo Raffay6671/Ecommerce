@@ -11,8 +11,8 @@ import ProductShowcase from "./components/productShowcase/ProductShowcase.jsx";
 import FooterComponent from "./components/footerComponent/FooterComponent.jsx";
 import ThemeDropdown from "./components/themeDropdown/ThemeDropdown.jsx";
 import CartSidePanel from "./components/cartSidePanel/CartSidePanel.jsx";
-import Cart from "./components/cart/Cart.jsx"; 
-import { CartProvider } from "./context/CartContext.jsx"; 
+import Cart from "./components/cart/Cart.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 function App() {
   return (
@@ -31,13 +31,13 @@ function AppContent() {
 
   return (
     <>
-      {location.pathname !== "/cart" && <NavBar />}
 
       <Routes>
         <Route
           path="/"
           element={
             <>
+              <NavBar />
               <MainBanner />
               <CategoryFilter />
               <ProductShowcase />
