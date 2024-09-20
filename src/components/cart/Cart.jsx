@@ -7,12 +7,15 @@ import Footer from "../footerComponent/FooterComponent.jsx";
 
 const Cart = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [selectedOption, setSelectedOption] = useState("flatRate");
   const { cart, removeFromCart } = useContext(CartContext); // Access the cart from CartContext
 
   const [quantities, setQuantities] = useState(
     cart.reduce((acc, item) => ({ ...acc, [item.id]: 1 }), {}) // Initialize quantity for each item
   );
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   // Increment handler
   const handleIncrement = (id) => {
@@ -191,7 +194,7 @@ const Cart = () => {
 
           <div className="coupon-container">
             <div className="FirstTwoItems">
-              <div class="coupon-input">
+              <div className="coupon-input">
                 <input
                   type="text"
                   id="coupon"
@@ -211,11 +214,74 @@ const Cart = () => {
             </div>
           </div>
           <div className="BacktoShopping">
-            <a href="#" class="go-back">
-              <i class="fas fa-arrow-left"></i>
+            <a href="#" className="go-back">
+              <i className="fas fa-arrow-left"></i>
               <p>Go Back Shopping</p>
             </a>
           </div>
+        </div>
+
+        {/* NOW START THE BILLING DIVISIONS */}
+        <div className="cart-totals">
+          <h2>CART TOTALS</h2>
+
+          <div className="totals-item">
+            <span className="item-left">SUBTOTAL</span>
+            <span className="item-center">$810</span>
+          </div>
+
+          <div className="shipping-section">
+            <span>SHIPPING</span>
+
+            <div className="shipping-options">
+              <label>
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="freeShipping"
+                  checked={selectedOption === "freeShipping"}
+                  onChange={handleOptionChange}
+                />
+                Free shipping
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="localPickup"
+                  checked={selectedOption === "localPickup"}
+                  onChange={handleOptionChange}
+                />
+                Local pickup
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="shipping"
+                  value="flatRate"
+                  checked={selectedOption === "flatRate"}
+                  onChange={handleOptionChange}
+                />
+                Flat Rate: $10
+              </label>
+            </div>
+
+            <p>
+              Shipping to <strong>Pakistan</strong>.
+            </p>
+
+            <button className="change-address">
+              CHANGE ADDRESS
+              <i class="fas fa-caret-down" style={{ marginLeft: "6px" }}></i>
+            </button>
+          </div>
+
+          <div className="totals-itemFinal">
+            <span>TOTAL</span>
+            <span>$810</span>
+          </div>
+
+          <button className="checkout-button">PROCEED TO CHECKOUT</button>
         </div>
       </div>
 

@@ -330,7 +330,125 @@ body {
   }
   
 
+  .cart-totals {
+    width: 100%;
+    max-width: 350px; /* Adjust width as needed */
+    padding: 20px;
+    font-family: sans-serif;
+    margin-left: 25%;
+    margin-top: 7%;
+  }
+  
+  .cart-totals h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 550;
+    color: #0c0c0c;
+  }
+  
+  .totals-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-bottom: 15px;
+    /* margin-top: 20px; */
+  }
 
+
+  .totals-itemFinal {
+    margin-top: 20px;
+  }
+  .item-left {
+    margin-right: auto; 
+  }
+  
+  .item-center {
+    margin-right: 30%;
+    color: #929292;
+    font-weight: 300;
+    font-size: 15px;
+    
+  }
+  
+  .shipping-section {
+    border-bottom: 1px solid #ddd; 
+    
+    width: 380px; 
+    
+   
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .shipping-section span {
+    font-size: 18px;
+    width: 30%;
+  }
+
+  .shipping-options {
+    margin-bottom: 1%;
+    width: 50%;
+    padding-right: 150px;
+    padding-left: 0px;
+    margin-left: 42%;
+ margin-top: -5%;    /*Important for responsivity */
+    
+  }
+  
+  .shipping-options label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #666;
+    margin-left: 59%;
+    text-wrap:nowrap;
+    
+  }
+  
+  .shipping-options input {
+    margin-right: 0px;
+  }
+  
+  .shipping-section p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+    margin-left: 48%;
+    text-wrap:nowrap;
+  }
+  
+  .change-address {
+    display: flex;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 0;
+    margin-top: 40px;
+    text-decoration:nones;
+    margin-left: 48%;
+    text-wrap: nowrap;
+    margin-bottom: 30px;
+  }
+  
+  .checkout-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .checkout-button:hover {
+    background-color: #333;
+  }
+  
 
 
 
