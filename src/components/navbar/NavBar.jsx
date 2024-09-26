@@ -2,15 +2,34 @@ import React, { useState, useEffect, useRef } from "react";
 import "../navbar/navbar-module.css";
 import SidePanel from "../sidePanel/SidePanel";
 import HoverPanels from "../hoverPanels/HoverPanels";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ products }) => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
-  const [isShown, setIsShown] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const loginPanelRef = useRef(null); // Reference for the login panel
+  const [showSearch, setShowSearch] = useState(false);
+  const searchRef = useRef(null); // Reference for the search bar
+  const navigate = useNavigate(); // useNavigate hook for navigation
+  const [searchQuery, setSearchQuery] = useState(""); // Add state to hold search query
 
-  const toggleSidePanel = (event) => {
+  const goToSearchPage = () => {
+    const filteredProducts = products.filter((product) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    if (filteredProducts.length > 0) {
+      navigate("/search", { state: { filteredProducts } });
+    } else {
+      navigate("/search", { state: { filteredProducts: [] } });
+    }
+  };
+
+  const toggleSearch = () => {
+    setShowSearch((prev) => !prev);
+  };
+
+  const toggleSidePanel = () => {
     setIsSidePanelOpen(!isSidePanelOpen);
   };
 
@@ -31,28 +50,36 @@ const NavBar = () => {
     setIsLogin(!isLogin);
   };
 
-  // Handle click outside the login panel to close it
+  // Handle click outside the login panel or search bar to close them
   useEffect(() => {
     const handleClickOutside = (event) => {
+      // Close login panel if clicked outside
       if (
+        isLogin &&
         loginPanelRef.current &&
         !loginPanelRef.current.contains(event.target)
       ) {
-        setIsLogin(false); // Close login panel if clicked outside
+        setIsLogin(false);
+      }
+
+      // Close search bar if clicked outside
+      if (
+        showSearch &&
+        searchRef.current &&
+        !searchRef.current.contains(event.target)
+      ) {
+        setShowSearch(false);
       }
     };
 
-    if (isLogin) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
+    // Add event listener for clicks outside
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
+      // Cleanup event listener when the component unmounts or state changes
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isLogin]);
-
+  }, [isLogin, showSearch]); // Dependencies track login and search states
   return (
     <>
       <nav className={`navbar ${isLogin ? "blurred" : ""}`}>
@@ -197,10 +224,33 @@ const NavBar = () => {
             <a href="#" className="nav-link" onClick={manageLogin}>
               <i className="fa-regular fa-user"></i>LOGIN
             </a>
-
-            <a href="/" className="nav-link">
+            <a href="#" className="nav-link" onClick={toggleSearch}>
               <i className="fa fa-search"></i>
             </a>
+
+            {showSearch && (
+              <div
+                className={`search-slider ${showSearch ? "show" : ""}`}
+                ref={searchRef}
+              >
+                <input
+                  type="text"
+                  placeholder="Enter Keyword..."
+                  className="search-input"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)} // Update searchQuery as user types
+                />
+
+                <a
+                  className="search-button"
+                  onClick={goToSearchPage}
+                  style={{ cursor: "pointer" }}
+                >
+                  <i className="fa fa-search"></i>
+                </a>
+              </div>
+            )}
+
             <a href="#" className="nav-link" onClick={toggleSidePanel}>
               <i className="fa fa-bars"></i>
             </a>
