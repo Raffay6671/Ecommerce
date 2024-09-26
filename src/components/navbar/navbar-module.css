@@ -72,7 +72,6 @@ body {
     color: rgb(103, 94, 94);
 }
 
-
 .submenu {
     position: absolute;
     background-color: rgb(0, 0, 0);
@@ -86,21 +85,106 @@ body {
     transition: opacity 0.5s ease, transform 0.8s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    gap:150px;
-    
+    gap: 150px;
 }
 
 .submenu li {
     margin-bottom: 30%;
+    margin-top: 4%  !important;  /* Remember to add in responsiveness*/
 }
+
 .submenu li a {
-    padding: 10px 15px;
+    padding: 5px 5px;
     white-space: nowrap;
     color: rgb(255, 255, 255) !important;
     margin-left: 20%;
     width: 100%;
-    
+    color: blue;
 }
+
+.insideShopTypes {
+    display: block !important; 
+    padding-left: 0; 
+    margin: 0; 
+}
+
+.insideShopTypes li {
+    margin-bottom: -25px;    /* Remember to add in responsiveness*/
+    margin-left: 22% !important;
+}
+
+.insideShopTypes li a {
+    margin-left: 0; 
+    padding-left: 15px;  
+    font-weight: 400 !important; /* Remember to add in responsiveness*/
+    color: grey !important; /* Remember to add in responsiveness*/
+} 
+
+
+
+
+
+.insideProductTypes {
+    display: block !important; 
+    padding-left: 0; 
+    margin: 0; 
+}
+
+.insideProductTypes li {
+    margin-bottom: -25px;    /* Remember to add in responsiveness*/
+    margin-left: 22% !important;
+}
+
+.insideProductTypes li a {
+    margin-left: 0; 
+    padding-left: 15px;  
+    font-weight: 400 !important; /* Remember to add in responsiveness*/
+    color: grey !important; /* Remember to add in responsiveness*/
+} 
+
+
+
+
+.insideFeatured {
+    display: block !important; 
+    padding-left: 0; 
+    margin: 0; 
+}
+
+.insideFeatured li {
+    margin-bottom: -25px;    /* Remember to add in responsiveness*/
+    margin-left: 22% !important;
+}
+
+.insideFeatured li a {
+    margin-left: 0; 
+    padding-left: 15px;  
+    font-weight: 400 !important; /* Remember to add in responsiveness*/
+    color: grey !important; /* Remember to add in responsiveness*/
+} 
+
+
+
+
+
+.insideLayouts {
+    display: block !important; 
+    padding-left: 0; 
+    margin: 0; 
+}
+
+.insideLayouts li {
+    margin-bottom: -25px;    /* Remember to add in responsiveness*/
+    margin-left: 22% !important;
+}
+
+.insideLayouts li a {
+    margin-left: 0; 
+    padding-left: 15px;  
+    font-weight: 400 !important; /* Remember to add in responsiveness*/
+    color: grey !important; /* Remember to add in responsiveness*/
+} 
+
 
 .navbar-left ul li:hover .submenu {
     opacity: 1;
@@ -108,6 +192,7 @@ body {
     transform: translateY(0);
     height: 58vh;
     display: flex;
+    border:2px solid red;
     
 
 }

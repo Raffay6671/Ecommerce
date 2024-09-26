@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import "../navbar/navbar-module.css";
 import SidePanel from "../sidePanel/SidePanel";
 import HoverPanels from "../hoverPanels/HoverPanels";
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
@@ -49,7 +49,7 @@ const NavBar = () => {
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside); // Cleanup when unmounted
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [isLogin]);
 
@@ -68,15 +68,112 @@ const NavBar = () => {
                   <ul className="submenu">
                     <li>
                       <a href="#">SHOP TYPES</a>
+                      <ul className="insideShopTypes">
+                        <li>
+                          <a href="#">Left Sidebar</a>
+                        </li>
+                        <li>
+                          <a href="#">With Filter</a>
+                        </li>
+                        <li>
+                          <a href="#">Masonry - Grid</a>
+                        </li>
+                        <li>
+                          <a href="#">Masonry - Wide</a>
+                        </li>
+                        <li>
+                          <a href="#">Shop Carousel</a>
+                        </li>
+                        <li>
+                          <a href="#">Shop Boxed</a>
+                        </li>
+                        <li>
+                          <a href="#">Single Category</a>
+                        </li>
+                      </ul>
                     </li>
                     <li>
                       <a href="#">PRODUCT TYPES</a>
+                      <ul className="insideProductTypes">
+                        <li>
+                          <a href="#">Standard Product</a>
+                        </li>
+                        <li>
+                          <a href="#">Grouped Product</a>
+                        </li>
+                        <li>
+                          <a href="#">Variable Product</a>
+                        </li>
+                        <li>
+                          <a href="#">Downloadable Product</a>
+                        </li>
+                        <li>
+                          <a href="#">Virtual Product</a>
+                        </li>
+                        <li>
+                          <a href="#">External Product</a>
+                        </li>
+                        <li>
+                          <a href="#">New! Product</a>
+                        </li>
+                        <li>
+                          <a href="#">On Sale Product</a>
+                        </li>
+                        <li>
+                          <a href="#">Out of Stock Product</a>
+                        </li>
+                      </ul>
                     </li>
+
                     <li>
                       <a href="#">FEATURED</a>
+                      <ul className="insideFeatured">
+                        <li>
+                          <a href="#">User Dashboard</a>
+                        </li>
+                        <li>
+                          <a href="#">Order Tracking</a>
+                        </li>
+                        <li>
+                          <a href="#">My Account</a>
+                        </li>
+                        <li>
+                          <a href="#">Cart</a>
+                        </li>
+                        <li>
+                          <a href="#">Checkout</a>
+                        </li>
+                        <li>
+                          <a href="#">Addresses</a>
+                        </li>
+                        <li>
+                          <a href="#">Payment Methods</a>
+                        </li>
+                      </ul>
                     </li>
+
                     <li>
                       <a href="#">LAYOUTS</a>
+                      <ul className="insideLayouts">
+                        <li>
+                          <a href="#">Two Columns Grid</a>
+                        </li>
+                        <li>
+                          <a href="#">Three Columns Grid</a>
+                        </li>
+                        <li>
+                          <a href="#">Four Columns Grid</a>
+                        </li>
+                        <li>
+                          <a href="#">Four Columns Wide</a>
+                        </li>
+                        <li>
+                          <a href="#">Five Columns Wide</a>
+                        </li>
+                        <li>
+                          <a href="#">Six Columns Wide</a>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </a>
