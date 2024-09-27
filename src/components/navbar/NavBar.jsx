@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const NavBar = ({ products }) => {
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const loginPanelRef = useRef(null); // Reference for the login panel
   const [showSearch, setShowSearch] = useState(false);
@@ -13,6 +14,9 @@ const NavBar = ({ products }) => {
   const navigate = useNavigate(); // useNavigate hook for navigation
   const [searchQuery, setSearchQuery] = useState(""); // Add state to hold search query
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   const goToSearchPage = () => {
     const filteredProducts = products.filter((product) =>
       product.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -254,6 +258,52 @@ const NavBar = ({ products }) => {
             <a href="#" className="nav-link" onClick={toggleSidePanel}>
               <i className="fa fa-bars"></i>
             </a>
+          </div>
+
+          <div className="hamburger-toggle" onClick={toggleSidebar}>
+            MENU <i className="fa fa-bars"></i>
+          </div>
+
+          <div className={`sidebar ${isSidebarOpen ? "" : "open"}`}>
+            <div className="closeMenu">
+              <div className="innercloseMenu">
+                <i className="fas fa-times" onClick={toggleSidebar}></i>
+              </div>
+            </div>
+            <div className="MenuItems">
+              <ul>
+                <li>
+                  <a href="/">
+                    HOME <i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    SHOP<i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    PAGES<i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    BLOG<i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/">
+                    PORTFOLIO<i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="/" className="ElementsAdjustSideBar">
+                    ELEMENTS<i className="fa fa-caret-right"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>

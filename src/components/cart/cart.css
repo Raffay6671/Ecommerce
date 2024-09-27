@@ -885,7 +885,7 @@ body {
 
 
 
-/* For Mobiles */
+/* For Mobiles and tablets */
 @media (min-width: 375px) and  (max-width: 767px){
     
     .cartNavbar {
@@ -1045,6 +1045,16 @@ color: #d3d3d3; /* Hover effect for Elements */
 }
 
 
+
+.cart-totals {
+  width: 100%;
+  max-width: 350px;
+  padding: 20px;
+  font-family: sans-serif;
+  margin-left: -86%;
+  margin-top: 70%;
+}
+
 }
 
 
@@ -1053,7 +1063,7 @@ color: #d3d3d3; /* Hover effect for Elements */
 
 
 
-/* For Mobiles */
+/* For Smaller Mobiles */
 @media (max-width: 374px){
     
     .cartNavbar {
@@ -1212,6 +1222,35 @@ transition: color 0.3s ease;
 color: #d3d3d3; /* Hover effect for Elements */
 }
 
+
+.cart-totals {
+  width: 60%;
+  max-width: 200px;
+  padding: 20px;
+  font-family: sans-serif;
+  margin-left: -150%;
+  margin-top: 90%;
+}
+
+
+
+.checkout-button {
+  display: block;
+  width: 300%;
+  margin-left: 30%;
+  padding: 15px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkout-button:hover {
+  background-color: #333;
+}
 
 }
 

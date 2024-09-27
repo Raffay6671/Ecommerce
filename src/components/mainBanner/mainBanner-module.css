@@ -1,13 +1,19 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Ensure the body takes up the full width */
+  overflow-x: hidden; /* Prevent any horizontal scrollbars */
+}
+
+
 .banner-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 50px 20px; 
     height: 80vh;
     width: 80vw;
     background-color: #f5f5f5; 
-    margin-left: 10%;
 
   }
 
@@ -53,17 +59,30 @@
 
 
   
-/* Laptop Large (2560px) */
-@media (max-width: 2560px) {
-    .hero-image {
-        width: 450px;
-        height: 110%;
-        z-index: 0; 
-      }
+/* 4k screen and Laptop large */
+@media (min-width: 1572px) {
 
-      
+  .banner-container {
+    background-color: blue;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px; 
+    height: 80vh;
+    width: 80vw;
+    background-color: #f5f5f5; 
+    margin-left: 8%;
+
+  }
+
+    .hero-image {
+        width: 1500px;
+        z-index: 0; 
+      }    
   .banner-title {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 600;
     margin: 0;
     color: #0a0a0a;
@@ -71,41 +90,433 @@
     font-family: Catamaran, sans-serif;
 
 
-  }
-  
+  } 
   .banner-subtitle {
-    font-size: 16px;
+    font-size: 25px;
    
     margin-top: 10px;
     font-weight:lighter;
     font-weight: 300;
     color: RGB(153, 153, 153);
-
-
     
   }
+   
+}
+
+
+
+
+
+
+  
+/* 4k screen and Larger Screens */
+@media (min-width:2560px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px; 
+    height: 80vh;
+    width: 80vw;
+    margin-left: 10%;
+
+  }
+
+    .hero-image {
+        width: 1500px;
+        z-index: 0; 
+      }    
 
       
-   
-}
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 70%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
 
-/* Standard Laptop (1440px) */
-@media (max-width: 1440px) {
-   
-    .nav-link {
-        font-size: 8px;
-    }
-    .navbar-left{
-        gap: 2px;
-    }
 
-    .navbar-right{
-        gap: 2px;
-        margin-left: 26%;
-    }
+  } 
+  .banner-subtitle {
+    font-size: 20px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
     
-.nav-link i {
-    display: inline-block;
-font-size: 10px;
+  }
+   
 }
+
+
+
+
+
+
+
+  
+/* Larger Laptops */
+@media (min-width:1440px) and (max-width:2559px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px; 
+    height: 80vh;
+    width: 80vw;
+    background-color: #f5f5f5; 
+    margin-left: 10%;
+
+  }
+
+    .hero-image {
+        width: 500px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 70%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 20px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
 }
+
+
+
+
+
+
+
+
+
+  
+/* Laptops */
+@media (min-width:1024px) and (max-width:1439px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 50px 20px; 
+    height: 80vh;
+    width: 80vw;
+    background-color: #f5f5f5; 
+    margin-left: 10%;
+
+  }
+
+    .hero-image {
+        width: 350px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 70%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 15px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
+}
+
+
+
+
+
+
+
+/* Tablets */
+@media (min-width:768px) and (max-width:1023px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    background-color: #f5f5f5; 
+    margin-left: 0;
+
+  }
+
+    .hero-image {
+        width: 350px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 70%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 12px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
+}
+
+
+
+
+
+
+
+
+
+/* Mobile Large */
+@media (min-width:425px) and (max-width:767px) {
+
+  .banner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    background-color: #f5f5f5; 
+    margin-left: 0;
+
+  }
+
+    .hero-image {
+        width: 270px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 85%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 12px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
+}
+
+
+
+
+
+
+
+
+/* Mobile Medium */
+@media (min-width:375px) and (max-width:424px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    background-color: #f5f5f5; 
+  
+
+  }
+
+    .hero-image {
+        width: 270px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 83%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 12px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
+}
+
+
+
+
+
+
+
+/* Mobile Medium */
+@media (min-width:320px) and (max-width:374px) {
+
+  .banner-container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 80vh;
+    width: 100%;
+    background-color: #f5f5f5; 
+  
+
+  }
+
+    .hero-image {
+        width: 270px;
+        z-index: 0; 
+      }    
+
+      
+  
+  .banner-content {
+    position: absolute;
+    left: 3%;
+    top: 83%;
+    z-index: 1;
+    max-width: 600px; 
+  }
+  .banner-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 0;
+    color: #0a0a0a;
+    text-transform: uppercase;
+    font-family: Catamaran, sans-serif;
+
+
+  } 
+  .banner-subtitle {
+    font-size: 12px;
+   
+    margin-top: 10px;
+    font-weight:lighter;
+    font-weight: 300;
+    color: RGB(153, 153, 153);
+    
+  }
+   
+}
+
+
+
+

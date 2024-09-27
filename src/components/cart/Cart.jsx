@@ -104,7 +104,7 @@ const Cart = () => {
           <div className={`sidebar ${isSidebarOpen ? "" : "open"}`}>
             <div className="closeMenu">
               <div className="innercloseMenu">
-                <i className="fas fa-times"></i>
+                <i className="fas fa-times" onClick={toggleSidebar}></i>
               </div>
             </div>
             <div className="MenuItems">

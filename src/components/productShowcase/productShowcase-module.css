@@ -152,3 +152,54 @@
     
 
   }
+
+
+
+
+
+
+
+
+
+
+
+  
+/* Mobile Medium  */
+@media (min-width: 375px) and (max-width: 424px) {
+
+ 
+   
+  .product-showcase-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+    margin-left: 5%;
+    margin-right: 8%;
+  }
+
+   
+}
+
+
+
+
+  
+/* Mobile Small */
+@media (min-width: 320px) and (max-width: 374px) {
+
+ 
+   
+  .product-showcase-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px;
+    margin-left: -1%;
+    margin-right: 15%;
+  }
+
+   
+}

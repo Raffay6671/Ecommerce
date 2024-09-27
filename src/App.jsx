@@ -32,60 +32,90 @@ function AppContent() {
     {
       id: 1,
       name: "BASKET WITH HANDLES",
-      price: "$160",
-      label: "NEW",
+      price: 10,
+      label: "NEW", // Label remains for visual purposes
       image: "src/assets/images/product1.jpg",
-      category: "HomeDecor",
+      category: "HomeDecor1",
+      popularity: 8,
+      averageRating: 4.5,
+      priceRange: "$10-$20",
+      newness: "2024-09-20", // Date product was added, representing newness
     },
+
     {
       id: 2,
       name: "FLOWER VASE",
-      price: "$120",
+      price: 120,
       label: "NEW",
       image: "src/assets/images/product2.jpg",
       category: "HomeDecor",
+      popularity: 8,
+      averageRating: 4.2,
+      priceRange: "$40+",
+      newness: "2024-09-18",
     },
     {
       id: 3,
       name: "DECO ACCESSORY",
-      price: "$200",
+      price: 200,
       label: "NEW",
       image: "src/assets/images/product3.jpg",
       category: "Decoration",
+      popularity: 12,
+      averageRating: 4.7,
+      priceRange: "$40+",
+      newness: "2024-09-22",
     },
     {
       id: 4,
       name: "WALL CLOCK",
-      price: "$180",
+      price: 180,
       label: "NEW",
       image: "src/assets/images/product4.jpg",
       category: "Decoration",
+      popularity: 9,
+      averageRating: 4.3,
+      priceRange: "$40+",
+      newness: "2024-09-21",
     },
     {
       id: 5,
       name: "TABLE LAMP",
-      price: "$90",
+      price: 90,
       label: "NEW",
       image: "src/assets/images/product5.jpg",
       category: "Lighting",
+      popularity: 6,
+      averageRating: 4.0,
+      priceRange: "$30-$40",
+      newness: "2024-09-15",
     },
     {
       id: 6,
       name: "PORTRAY VASE",
-      price: "$90",
+      price: 90,
       label: "NEW",
       image: "src/assets/images/product6.jpg",
       category: "Vases",
+      popularity: 7,
+      averageRating: 4.1,
+      priceRange: "$30-$40",
+      newness: "2024-09-14",
     },
     {
       id: 7,
       name: "Rose Holdback",
-      price: "$90",
+      price: 90,
       label: "NEW",
       image: "src/assets/images/product7.jpg",
       category: "Basics",
+      popularity: 5,
+      averageRating: 3.9,
+      priceRange: "$30-$40",
+      newness: "2024-09-13",
     },
   ];
+
   const location = useLocation();
 
   return (
@@ -96,12 +126,18 @@ function AppContent() {
           element={
             <>
               <NavBar products={products} />
-              <MainBanner />
-              <CategoryFilter products={products} />
-              <ProductShowcase />
+              {
+                <>
+                  <MainBanner />
+
+                  {<CategoryFilter products={products} />}
+                  <FooterComponent />
+                </>
+                /*<ProductShowcase />
               <FooterComponent />
               <ThemeDropdown />
-              <CartSidePanel />
+              <CartSidePanel /> */
+              }
             </>
           }
         />
